@@ -1,5 +1,3 @@
-This is your template repository!
-
-You will make all changes in the `changes` branch.
+This is a self learning repo for React & Other front end :D
 
 This repository is licensed under [MIT](../LICENSE) (c) 2019 GitHub, Inc.
