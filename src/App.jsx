@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "./Table";
 import List from "./List";
+import NewsDashboard from "./components/NewsDashboard";
 
 class App extends React.Component {
   constructor(props) {
@@ -121,6 +122,7 @@ class App extends React.Component {
           </div>
         </nav>
         {tabChoice}
+        <NewsDashboard />
       </div>
     );
   }
