@@ -1,7 +1,18 @@
 import React from "react";
 
-class List extends React.Component {
-  constructor(props) {
+interface IProps {
+  title: string;
+  placeholder: string;
+  addFunction: (value: string) => void;
+  currList: Array<string>;
+}
+
+interface IState {
+  value: string;
+}
+
+class List extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
     this.state = {
       value: ""
@@ -11,11 +22,11 @@ class List extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(event: any) {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit(event: any) {
     this.setState({
       value: ""
     });
