@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.css";
 
-class NewsDashboard extends React.Component {
-  constructor(props) {
+interface state {
+  title: string;
+  content: Array<string>;
+}
+
+class NewsDashboard extends React.Component<{}, state> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       title: "Hahah",

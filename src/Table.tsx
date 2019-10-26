@@ -1,7 +1,14 @@
 import React from "react";
 
-class Table extends React.Component {
-  getValue(data, tableName, row) {
+interface props {
+  rows: Array<string>;
+  tableNames: Array<string>;
+  data: any;
+  addFunction: (name: string, row: string, value: string) => void;
+}
+
+class Table extends React.Component<props, {}> {
+  getValue(data: any, tableName: string, row: string) {
     if (tableName in data && row in data[tableName]) {
       return data[tableName][row];
     } else {
@@ -9,7 +16,7 @@ class Table extends React.Component {
     }
   }
 
-  createRows(name) {
+  createRows(name: string) {
     return (
       <div>
         {this.props.rows.map((row, index) => (

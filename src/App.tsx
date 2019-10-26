@@ -3,8 +3,15 @@ import Table from "./Table";
 import List from "./List";
 import NewsDashboard from "./components/NewsDashboard";
 
-class App extends React.Component {
-  constructor(props) {
+interface state {
+  buttonClicked: string;
+  assignments: Array<string>;
+  students: Array<string>;
+  grades: object;
+}
+
+class App extends React.Component<{}, state> {
+  constructor(props: {}) {
     super(props);
 
     this.state = {
@@ -21,28 +28,28 @@ class App extends React.Component {
     this.addGrade = this.addGrade.bind(this);
   }
 
-  handleButtonClicked(buttonName) {
+  handleButtonClicked(buttonName: string) {
     this.setState({
       buttonClicked: buttonName
     });
   }
 
   /*Check out this addAssignment method*/
-  addAssignment(assignmentName) {
+  addAssignment(assignmentName: string) {
     this.setState({
       assignments: this.state.assignments.concat(assignmentName)
     });
   }
 
   /*Write an addStudent method here*/
-  addStudent(studentName) {
+  addStudent(studentName: string) {
     this.setState({
       students: this.state.students.concat(studentName)
     });
   }
 
-  addGrade(assignment, student, score) {
-    let grades = this.state.grades;
+  addGrade(assignment: string, student: string, score: string) {
+    let grades = this.state.grades as any;
     let assignmentName = assignment;
     let studentName = student;
     if (!(assignment in grades)) {
