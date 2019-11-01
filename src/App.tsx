@@ -2,12 +2,14 @@ import React from "react";
 import Table from "./Table";
 import List from "./List";
 import NewsDashboard from "./components/NewsDashboard";
+import Counter from "./components/Counter";
 
 interface state {
   buttonClicked: string;
   assignments: Array<string>;
   students: Array<string>;
   grades: object;
+  count: number;
 }
 
 class App extends React.Component<{}, state> {
@@ -18,7 +20,8 @@ class App extends React.Component<{}, state> {
       buttonClicked: "",
       assignments: [] /*Below this line, add the students state variable*/,
       students: [],
-      grades: {}
+      grades: {},
+      count: 0
     };
 
     this.handleButtonClicked = this.handleButtonClicked.bind(this);
@@ -104,6 +107,14 @@ class App extends React.Component<{}, state> {
         <div className="Box Box--spacious f4">
           <div className="Box-header">
             <h3 className="Box-title d-flex flex-justify-center">GradeBook</h3>
+            <Counter
+              label={`Label`}
+              count={this.state.count}
+              onIncrement={() => {
+                const { count } = this.state;
+                this.setState({ count: count + 1 });
+              }}
+            />
           </div>
         </div>
         <nav className="UnderlineNav d-flex flex-justify-center">
