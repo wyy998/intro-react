@@ -3,6 +3,7 @@ import Table from "./Table";
 import List from "./List";
 import NewsDashboard from "./components/NewsDashboard";
 import Counter from "./components/Counter";
+import BetterMouse from "./components/BetterMouse";
 
 interface state {
   buttonClicked: string;
@@ -104,6 +105,7 @@ class App extends React.Component<{}, state> {
 
     return (
       <div>
+        <BetterMouse />
         <div className="Box Box--spacious f4">
           <div className="Box-header">
             <h3 className="Box-title d-flex flex-justify-center">GradeBook</h3>
