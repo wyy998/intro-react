@@ -3,8 +3,12 @@ import Table from "./Table";
 import List from "./List";
 import NewsDashboard from "./components/NewsDashboard";
 import Counter from "./components/Counter";
+<<<<<<< HEAD
 import BoilingVerdict from "./components/BoilingVerdict";
 import "./App.css";
+=======
+import BetterMouse from "./components/BetterMouse";
+>>>>>>> moveable tool
 
 interface state {
   buttonClicked: string;
@@ -106,6 +110,7 @@ class App extends React.Component<{}, state> {
 
     return (
       <div>
+        <BetterMouse />
         <div className="Box Box--spacious f4">
           <div className="Box-header">
             <h3 className="Box-title d-flex flex-justify-center">GradeBook</h3>
