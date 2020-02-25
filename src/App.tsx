@@ -110,19 +110,23 @@ class App extends React.Component<{}, state> {
 
     return (
       <div>
-        <BetterMouse />
-        <div className="Box Box--spacious f4">
-          <div className="Box-header">
-            <h3 className="Box-title d-flex flex-justify-center">GradeBook</h3>
-            <Counter
-              label={`Label`}
-              count={this.state.count}
-              onIncrement={() => {
-                const { count } = this.state;
-                this.setState({ count: count + 1 });
-              }}
-            />
+        <BetterMouse/>
+          <div className="Box Box--spacious f4">
+            <div className="Box-header">
+              <h3 className="Box-title d-flex flex-justify-center">
+                GradeBook
+              </h3>
+              <Counter
+                label={`Label`}
+                count={this.state.count}
+                onIncrement={() => {
+                  const { count } = this.state;
+                  this.setState({ count: count + 1 });
+                }}
+              />
+            </div>
           </div>
+<<<<<<< HEAD
         </div>
         <nav className="UnderlineNav d-flex flex-justify-center">
           <div className="UnderlineNav-body pt-6">
@@ -149,6 +153,33 @@ class App extends React.Component<{}, state> {
         <BoilingVerdict />
         {tabChoice}
         <NewsDashboard />
+=======
+          <nav className="UnderlineNav d-flex flex-justify-center">
+            <div className="UnderlineNav-body pt-6">
+              <button
+                className="btn btn-primary"
+                onClick={() => this.handleButtonClicked("assignments")}
+              >
+                Assignments
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => this.handleButtonClicked("students")}
+              >
+                Students
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={() => this.handleButtonClicked("grades")}
+              >
+                Grades
+              </button>
+            </div>
+          </nav>
+          {tabChoice}
+          <NewsDashboard />
+        {/* </BetterMouse> */}
+>>>>>>> stash changes
       </div>
     );
   }
