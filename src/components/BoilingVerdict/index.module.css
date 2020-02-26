@@ -1,0 +1,19 @@
+.container {
+  width: fit-content;
+  height: fit-content;
+  border: black solid 2px;
+  border-radius: 10px;
+  /* display: flex;
+  align-items: flex-start; */
+}
+
+img {
+  width: 250px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.textBoil {
+  color: red;
+  font-size: large;
+}

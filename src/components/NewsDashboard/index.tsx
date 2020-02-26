@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import style from "./index.module.css";
 
 interface state {
   title: string;
@@ -21,11 +21,11 @@ class NewsDashboard extends React.Component<{}, state> {
 
   render() {
     return (
-      <div className="container">
-        <div className="title">{this.state.title}</div>
-        <div className="content">
-          {this.state.content.map(s => (
-            <p>{s}</p>
+      <div className={style.container}>
+        <div className={style.title}>{this.state.title}</div>
+        <div className={style.content}>
+          {this.state.content.map((s, index) => (
+            <p key={index}>{s}</p>
           ))}
         </div>
       </div>
