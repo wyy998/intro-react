@@ -3,6 +3,8 @@ import Table from "./Table";
 import List from "./List";
 import NewsDashboard from "./components/NewsDashboard";
 import Counter from "./components/Counter";
+import BoilingVerdict from "./components/BoilingVerdict";
+import "./App.css";
 
 interface state {
   buttonClicked: string;
@@ -139,6 +141,7 @@ class App extends React.Component<{}, state> {
             </button>
           </div>
         </nav>
+        <BoilingVerdict />
         {tabChoice}
         <NewsDashboard />
       </div>
