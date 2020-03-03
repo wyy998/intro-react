@@ -1,15 +1,16 @@
 import React from "react";
 import iconImg from "./579714.png";
+import styles from "./index.module.css";
 
-const container: React.CSSProperties = {
-  position: "fixed",
-  width: "100%",
-  height: "100%"
-};
+// const container: React.CSSProperties = {
+//   position: "fixed",
+//   width: "100%",
+//   height: "100%"
+// };
 
-const icon: React.CSSProperties = {
-  position: "fixed"
-};
+// const icon: React.CSSProperties = {
+//   position: "fixed"
+// };
 
 type BetterMouseState = {
   readonly x: number;
@@ -70,9 +71,10 @@ class BetterMouse extends React.Component<BetterMouseProps, BetterMouseState> {
 
   render() {
     return (
-      <div style={container} onMouseMove={this.handleMouseMove}>
+      <div className={styles.container} onMouseMove={this.handleMouseMove}>
         <img
-          style={{ ...icon, left: this.state.x, top: this.state.y }}
+          className={styles.icon}
+          style={{ left: this.state.x, top: this.state.y }}
           src={iconImg}
           alt=""
           onMouseDown={this.handleMouseDown}

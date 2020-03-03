@@ -1,3 +1,5 @@
+@import "~antd/dist/antd.css";
+
 .App {
   text-align: center;
 }
@@ -21,6 +23,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
 }
 
 @keyframes App-logo-spin {

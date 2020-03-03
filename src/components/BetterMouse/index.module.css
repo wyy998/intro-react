@@ -1,0 +1,14 @@
+.container {
+  /* position: fixed; */
+  /* width: 200px; */
+  /* height: 200px; */
+  /* border: black 4px; */
+  height: 100%;
+  /* width: 100%; */
+}
+
+.icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
