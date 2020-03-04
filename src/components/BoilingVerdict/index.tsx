@@ -1,7 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import React from "react";
 import styles from "./index.module.css";
-import Img from "./hotWater.jpg";
 
 enum TemperatureFormat {
   Celsius = "Celsius",
@@ -46,7 +45,11 @@ function BoilingVerdict() {
   console.log(tempNum);
   return (
     <div className={styles.container}>
-      <img src={Img} alt="" className={styles.imgWater} />
+      <img
+        src="https://img.mp.itc.cn/q_70,c_zoom,w_640/upload/20170407/84a2a06d7c8d4cde904f784200465bce_th.jpg"
+        alt=""
+        className={styles.imgWater}
+      />
       <TemperatureInput
         type={TemperatureFormat.Celsius}
         temp={temperature}
