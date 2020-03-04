@@ -18,7 +18,6 @@ const AppMenu = (props: PropsWithChildren<{}>) => {
   const onCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  console.log(props);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapsed}>

@@ -3,7 +3,7 @@ import style from "./index.module.css";
 import { Card } from "antd";
 
 const { Meta } = Card;
-const url = "http://localhost:3000/news.json";
+const url = "news.json";
 //   "http://v.juhe.cn/toutiao/index?type=top&key=3dc86b09a2ee2477a5baa80ee70fcdf5";
 
 interface state {
