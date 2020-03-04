@@ -3,11 +3,10 @@
   height: fit-content;
   border: black solid 2px;
   border-radius: 10px;
-  /* display: flex;
-  align-items: flex-start; */
+  margin: 0 auto;
 }
 
-img {
+.imgWater {
   width: 250px;
   height: 200px;
   border-radius: 10px;

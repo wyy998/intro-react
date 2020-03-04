@@ -46,7 +46,7 @@ function BoilingVerdict() {
   console.log(tempNum);
   return (
     <div className={styles.container}>
-      <img src={Img} alt="" />
+      <img src={Img} alt="" className={styles.imgWater} />
       <TemperatureInput
         type={TemperatureFormat.Celsius}
         temp={temperature}

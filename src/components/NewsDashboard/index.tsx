@@ -1,9 +1,14 @@
 import React from "react";
 import style from "./index.module.css";
+import { Card } from "antd";
+
+const { Meta } = Card;
+const url = "http://localhost:3000/news.json";
+//   "http://v.juhe.cn/toutiao/index?type=top&key=3dc86b09a2ee2477a5baa80ee70fcdf5";
 
 interface state {
   title: string;
-  content: Array<string>;
+  data: Array<Object>;
 }
 
 class NewsDashboard extends React.Component<{}, state> {
@@ -11,23 +16,35 @@ class NewsDashboard extends React.Component<{}, state> {
     super(props);
     this.state = {
       title: "Hahah",
-      content: [
-        "This is a joke",
-        "在正常的css中，比如background-color，box-sizing等属性，在style对象div1中的属性中，必须转换成驼峰法，backgroundColor，boxSizing。而没有连字符的属性，如margin，width等，则在style对象中不变。",
-        "作者：grain先森"
-      ]
+      data: []
     };
+  }
+
+  componentDidMount() {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ data: data.result.data });
+      })
+      .catch(e => console.log(e));
   }
 
   render() {
     return (
       <div className={style.container}>
-        <div className={style.title}>{this.state.title}</div>
-        <div className={style.content}>
-          {this.state.content.map((s, index) => (
-            <p key={index}>{s}</p>
-          ))}
-        </div>
+        {this.state.data.map((d: any, index) => (
+          <Card
+            key={index}
+            className={style.card}
+            hoverable
+            style={{ width: 240 }}
+            cover={<img alt={d.date} src={d.thumbnail_pic_s} />}
+            onClick={() => window.open(d.url)}
+          >
+            <Meta title={d.title} description={d.author_name} />
+          </Card>
+        ))}
       </div>
     );
   }
