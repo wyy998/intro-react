@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 import { Divider, Table, Button, Tag, Modal, Form, Input } from "antd";
 import Column from "antd/lib/table/Column";
+import { AppstoreAddOutlined } from "@ant-design/icons";
+import { createHash } from "crypto";
 
 interface TodoTableItem {
   key: string;
   name: string;
   status: string[];
+}
+const ColorLen = 11;
+enum TagColor {
+  "magenta",
+  "red",
+  "volcano",
+  "orange",
+  "gold",
+  "lime",
+  "green",
+  "cyan",
+  "blue",
+  "geekblue",
+  "purple"
 }
 
 const Todo = () => {
@@ -45,9 +61,15 @@ const Todo = () => {
       }
     }
   };
+  // Make Tag more colorful
+  const mappingStringToColor = (s: string) => {
+    const hash = createHash("sha256");
+    hash.update(s);
+    let num = parseInt(hash.digest("hex"), 16);
+    return TagColor[num % ColorLen];
+  };
   return (
     <div>
-      <Button onClick={onButtonClick}>Add Todo</Button>
       <Modal
         title="Add TODO"
         visible={modal}
@@ -56,7 +78,7 @@ const Todo = () => {
         footer={null}
       >
         <Divider>Add new things to your Todo List.</Divider>
-        <Form onFinish={onFormFinish}>
+        <Form onFinish={onFormFinish} layout="vertical">
           <Form.Item label="name" name="name">
             <Input />
           </Form.Item>
@@ -64,13 +86,23 @@ const Todo = () => {
             <Input />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
+            <Button type="primary" htmlType="submit" block>
               Sumbit
             </Button>
           </Form.Item>
         </Form>
       </Modal>
-      <Divider orientation="left">Todo List:</Divider>
+      <Divider orientation="left">
+        Todo List:
+        <Divider type="vertical" />
+        <Button
+          onClick={onButtonClick}
+          type="primary"
+          icon={<AppstoreAddOutlined />}
+        >
+          Add Todo
+        </Button>
+      </Divider>
       <Table dataSource={todoList}>
         <Column title="name" dataIndex="name" key="name" />
         <Column
@@ -80,7 +112,7 @@ const Todo = () => {
           render={(status: string[]) => (
             <span>
               {status.map(s => (
-                <Tag color="blue" key={s}>
+                <Tag color={mappingStringToColor(s)} key={s}>
                   {s}
                 </Tag>
               ))}
@@ -112,7 +144,7 @@ const Todo = () => {
           render={(status: string[]) => (
             <span>
               {status.map(s => (
-                <Tag color="blue" key={s}>
+                <Tag color={mappingStringToColor(s)} key={s}>
                   {s}
                 </Tag>
               ))}
