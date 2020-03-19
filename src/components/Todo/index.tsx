@@ -49,10 +49,11 @@ const Todo = () => {
     <div>
       <Button onClick={onButtonClick}>Add Todo</Button>
       <Modal
-        title="Basic"
+        title="Add TODO"
         visible={modal}
         onOk={onModalOk}
         onCancel={onModalCancel}
+        footer={null}
       >
         <Divider>Add new things to your Todo List.</Divider>
         <Form onFinish={onFormFinish}>
