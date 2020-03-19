@@ -35,7 +35,11 @@ const Todo = () => {
   const onFormFinish = (value: any) => {
     setTodoList([
       ...todoList,
-      { key: value.name, name: value.name, status: value.status.split(" ") }
+      {
+        key: value.name,
+        name: value.name,
+        status: ["TODO"].concat(value.status.split(" "))
+      }
     ]);
     setModal(false);
   };
@@ -50,12 +54,14 @@ const Todo = () => {
     if (from === "todo") {
       const item = todoList.find(item => item.key === key);
       if (item) {
+        item.status[0] = "DONE";
         setTodoList(todoList.filter(item => item.key !== key));
         setDoneList([...doneList, item]);
       }
     } else if (from === "done") {
       const item = doneList.find(item => item.key === key);
       if (item) {
+        item.status[0] = "TODO";
         setDoneList(doneList.filter(item => item.key !== key));
         setTodoList([...todoList, item]);
       }
