@@ -76,6 +76,7 @@ const Todo = () => {
         onOk={onModalOk}
         onCancel={onModalCancel}
         footer={null}
+        destroyOnClose
       >
         <Divider>Add new things to your Todo List.</Divider>
         <Form onFinish={onFormFinish} layout="vertical">
