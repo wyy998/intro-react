@@ -5,6 +5,7 @@ import NewsDashboard from "../components/NewsDashboard";
 import AppMenu from "../components/AppMenu/AppMenu";
 import StudentManage from "../components/StudentManage";
 import { Typography } from "antd";
+import Todo from "../components/Todo";
 
 const RouteConfig = () => {
   return (
@@ -20,6 +21,9 @@ const RouteConfig = () => {
             <Route path="/board" component={NewsDashboard} />
             <Route path="/boil" component={BoilingVerdict} />
             <Route path="/student" component={StudentManage} />
+            <Route path="/todo">
+              <Todo />
+            </Route>
           </Switch>
         </AppMenu>
       </Route>

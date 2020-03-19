@@ -5,7 +5,8 @@ import {
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
-  UserOutlined
+  UserOutlined,
+  FormOutlined
 } from "@ant-design/icons";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -57,6 +58,12 @@ const AppMenu = (props: PropsWithChildren<{}>) => {
             <NavLink to="/board">
               <FileOutlined />
               <span>News</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/todo">
+              <FormOutlined />
+              <span>TODO</span>
             </NavLink>
           </Menu.Item>
         </Menu>
